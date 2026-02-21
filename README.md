@@ -1,12 +1,14 @@
 # generator-jhipster-yellowbricks-client-contextpath
 
-Assume context-path is "/jh"
+Assume the context-path is "/jh"
 
-For src/main/webapp/index.html
+For `src/main/webapp/index.html`
+```diff
+- <base href="/" />
++ <base href="/jh/" />
 ```
-From <base href="/" /> to <base href="/jh/" />
-```
-For src/main/webapp/swagger-ui/index.html
-```
-From <base href="/swagger-ui/" /> to <base href="/jh/swagger-ui/" />
+For `src/main/webapp/swagger-ui/index.html`
+```diff
+- <base href="/swagger-ui/" />
++ <base href="/jh/swagger-ui/" />
 ```
