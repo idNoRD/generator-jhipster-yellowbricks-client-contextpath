@@ -84,7 +84,59 @@ export default class extends BaseApplicationGenerator {
 
   get [BaseApplicationGenerator.POST_WRITING]() {
     return this.asPostWritingTaskGroup({
-      async postWritingTemplateTask() {},
+      async addBaseHref() {
+        const contextPath = this.blueprintConfig.contextPath;
+        if (!contextPath) {
+          this.log.warn(
+            '[context-path blueprint] contextPath not configured — add {"generator-jhipster-yellowbricks-client-contextpath":{"contextPath":"/jh/"}} to .yo-rc.json',
+          );
+          return;
+        }
+
+        this.editFile('src/main/webapp/index.html', { ignoreNonExisting: true }, content => {
+          if (!content.includes('<base href=')) {
+            this.log.warn('[context-path blueprint] index.html: <base href> tag not found — manual intervention needed');
+            return content;
+          }
+
+          const previousMatch = content.match(/<base href="([^"]*)" \/>/);
+          const previousHref = previousMatch ? previousMatch[1] : null;
+          const updated = content.replace(/<base href="[^"]*" \/>/, `<base href="${contextPath}" />`);
+
+          if (previousHref && previousHref !== contextPath) {
+            this.log.info(`[context-path blueprint] index.html: base href renamed from "${previousHref}" to "${contextPath}"`);
+          } else {
+            this.log.info(`[context-path blueprint] index.html: base href "${contextPath}" set successfully`);
+          }
+
+          return updated;
+        });
+
+        const swaggerHref = `${contextPath}swagger-ui/`;
+
+        this.editFile('src/main/webapp/swagger-ui/index.html', { ignoreNonExisting: true }, content => {
+          if (!content.includes('<base href=')) {
+            this.log.warn(
+              '[context-path blueprint] swagger-ui/index.html: <base href> tag not found — manual intervention needed',
+            );
+            return content;
+          }
+
+          const previousMatch = content.match(/<base href="([^"]*)" \/>/);
+          const previousHref = previousMatch ? previousMatch[1] : null;
+          const updated = content.replace(/<base href="[^"]*" \/>/, `<base href="${swaggerHref}" />`);
+
+          if (previousHref && previousHref !== swaggerHref) {
+            this.log.info(
+              `[context-path blueprint] swagger-ui/index.html: base href renamed from "${previousHref}" to "${swaggerHref}"`,
+            );
+          } else {
+            this.log.info(`[context-path blueprint] swagger-ui/index.html: base href "${swaggerHref}" set successfully`);
+          }
+
+          return updated;
+        });
+      },
     });
   }
 

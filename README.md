@@ -1,80 +1,74 @@
 # generator-jhipster-yellowbricks-client-contextpath
 
-## JHipster source
-
-- Generator: https://github.com/jhipster/generator-jhipster/blob/main/generators/client
-
-Assume the context-path is "/jh"
-
-## For `src/main/webapp/index.html`
-
-- Template: https://github.com/jhipster/generator-jhipster/blob/main/generators/client/templates/src/main/webapp/index.html.ejs
-
-```diff
-- <base href="/" />
-+ <base href="/jh/" />
-```
-
-## For `src/main/webapp/swagger-ui/index.html`
-
-- Template: https://github.com/jhipster/generator-jhipster/blob/main/generators/client/templates/src/main/webapp/swagger-ui/index.html.ejs
-
-```diff
-- <base href="/swagger-ui/" />
-+ <base href="/jh/swagger-ui/" />
-```
-
-> JHipster blueprint, yellowbricks-client-contextpath blueprint for JHipster
+A [JHipster](https://www.jhipster.tech/) blueprint that sets the `<base href>` in client HTML files to a configurable context path.
 
 [![NPM version][npm-image]][npm-url]
 [![Generator][github-generator-image]][github-generator-url]
-[![Samples][github-samples-image]][github-samples-url]
+![GitHub Maintained](https://img.shields.io/maintenance/yes/2026)
 
-# Introduction
+## JHipster source
 
-This is a [JHipster](https://www.jhipster.tech/) blueprint, that is meant to be used in a JHipster application.
+- Generator: [`generators/client`](https://github.com/jhipster/generator-jhipster/tree/main/generators/client)
+- Templates:
+  - [`index.html.ejs`](https://github.com/jhipster/generator-jhipster/blob/main/generators/client/templates/src/main/webapp/index.html.ejs)
+  - [`swagger-ui/index.html.ejs`](https://github.com/jhipster/generator-jhipster/blob/main/generators/client/templates/src/main/webapp/swagger-ui/index.html.ejs)
 
-# Prerequisites
+## What it does
 
-As this is a [JHipster](https://www.jhipster.tech/) blueprint, we expect you have JHipster basic knowledge:
+Patches two HTML files during generation:
 
-- [JHipster](https://www.jhipster.tech/)
+**`src/main/webapp/index.html`**
 
-# Installation
+```diff
+-<base href="/" />
++<base href="/jh/" />
+```
 
-To install or update this blueprint:
+**`src/main/webapp/swagger-ui/index.html`**
+
+```diff
+-<base href="/swagger-ui/" />
++<base href="/jh/swagger-ui/" />
+```
+
+The value is configurable — any context path can be used.
+
+## Prerequisites
+
+- Node.js `^22.18.0 || >=24.11.0`
+- JHipster 9
+
+## Installation
 
 ```bash
 npm install -g generator-jhipster-yellowbricks-client-contextpath
 ```
 
-# Usage
+## Usage
 
-To use this blueprint, run the below command
+Create a `.yo-rc.json` in your project directory with the desired context path:
 
-````bash
-jhipster-yellowbricks-client-contextpath
-
-You can look for updated yellowbricks-client-contextpath blueprint specific options by running
-
-```bash
-jhipster-yellowbricks-client-contextpath app --help
-````
-
-And looking for `(blueprint option: yellowbricks-client-contextpath)` like
-
-## Pre-release
-
-To use an unreleased version, install it using git.
-
-```bash
-npm install -g jhipster/generator-jhipster-yellowbricks-client-contextpath#main
-jhipster --blueprints yellowbricks-client-contextpath --skip-jhipster-dependencies
+```json
+{
+  "generator-jhipster-yellowbricks-client-contextpath": {
+    "contextPath": "/jh/"
+  }
+}
 ```
+
+Then run JHipster with this blueprint:
+
+```bash
+# Standard generator
+jhipster --blueprints yellowbricks-client-contextpath
+
+# With JDL
+jhipster import-jdl your-app.jdl --blueprints yellowbricks-client-contextpath
+```
+
+Replace `/jh/` with your actual context path. The trailing slash is required.
 
 [npm-image]: https://img.shields.io/npm/v/generator-jhipster-yellowbricks-client-contextpath.svg
 [npm-url]: https://npmjs.org/package/generator-jhipster-yellowbricks-client-contextpath
-[github-generator-image]: https://github.com/jhipster/generator-jhipster-yellowbricks-client-contextpath/actions/workflows/generator.yml/badge.svg
-[github-generator-url]: https://github.com/jhipster/generator-jhipster-yellowbricks-client-contextpath/actions/workflows/generator.yml
-[github-samples-image]: https://github.com/jhipster/generator-jhipster-yellowbricks-client-contextpath/actions/workflows/samples.yml/badge.svg
-[github-samples-url]: https://github.com/jhipster/generator-jhipster-yellowbricks-client-contextpath/actions/workflows/samples.yml
+[github-generator-image]: https://github.com/idNoRD/generator-jhipster-yellowbricks-client-contextpath/actions/workflows/generator.yml/badge.svg
+[github-generator-url]: https://github.com/idNoRD/generator-jhipster-yellowbricks-client-contextpath/actions/workflows/generator.yml
