@@ -1,6 +1,6 @@
 # generator-jhipster-yellowbricks-client-contextpath
 
-A [JHipster](https://www.jhipster.tech/) blueprint that sets the `<base href>` in client HTML files to a configurable context path.
+One of [![Yellow Bricks Badge](https://img.shields.io/badge/YELLOWBRICKS--yellow?style=for-the-badge&labelColor=black)](https://github.com/idNoRD/generator-jhipster-yellowbricks) - a [JHipster](https://www.jhipster.tech/) blueprint that sets the `<base href>` in client HTML files to a configurable context path.
 
 [![NPM version][npm-image]][npm-url]
 [![Generator][github-generator-image]][github-generator-url]
