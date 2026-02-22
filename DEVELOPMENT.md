@@ -108,6 +108,6 @@ Before the first automated publish, configure a Trusted Publisher on npmjs.com s
 
 1. Go to **npmjs.com → your package → Settings → Trusted Publishers**
 2. Add GitHub Actions:
-   - Owner: `idNoRD`
-   - Repository: `generator-jhipster-yellowbricks-client-contextpath`
+   - Owner: `<your github name/org>`
+   - Repository: `generator-jhipster-yellowbricks-<generator>-<purpose>`
    - Workflow: `publish.yml`
