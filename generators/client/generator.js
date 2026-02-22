@@ -116,9 +116,7 @@ export default class extends BaseApplicationGenerator {
 
         this.editFile('src/main/webapp/swagger-ui/index.html', { ignoreNonExisting: true }, content => {
           if (!content.includes('<base href=')) {
-            this.log.warn(
-              '[context-path blueprint] swagger-ui/index.html: <base href> tag not found — manual intervention needed',
-            );
+            this.log.warn('[context-path blueprint] swagger-ui/index.html: <base href> tag not found — manual intervention needed');
             return content;
           }
 
@@ -127,9 +125,7 @@ export default class extends BaseApplicationGenerator {
           const updated = content.replace(/<base href="[^"]*" \/>/, `<base href="${swaggerHref}" />`);
 
           if (previousHref && previousHref !== swaggerHref) {
-            this.log.info(
-              `[context-path blueprint] swagger-ui/index.html: base href renamed from "${previousHref}" to "${swaggerHref}"`,
-            );
+            this.log.info(`[context-path blueprint] swagger-ui/index.html: base href renamed from "${previousHref}" to "${swaggerHref}"`);
           } else {
             this.log.info(`[context-path blueprint] swagger-ui/index.html: base href "${swaggerHref}" set successfully`);
           }

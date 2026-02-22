@@ -14,6 +14,7 @@
   },
   "license": "MIT",
   "author": "idNoRD",
+  "type": "module",
   "bin": {
     "jhipster-yellowbricks-client-contextpath": "cli/cli.cjs"
   },
