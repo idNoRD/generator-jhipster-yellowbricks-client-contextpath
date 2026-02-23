@@ -1,6 +1,6 @@
 {
   "name": "generator-jhipster-yellowbricks-client-contextpath",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "JHipster blueprint to configure client-side base href via a custom context path",
   "keywords": [
     "yeoman-generator",
