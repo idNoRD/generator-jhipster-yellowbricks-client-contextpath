@@ -941,9 +941,6 @@ exports[`SubGenerator client of yellowbricks-client-contextpath JHipster bluepri
   "src/main/webapp/swagger-ui/index.html": {
     "stateCleared": "modified",
   },
-  "template-file-client": {
-    "stateCleared": "modified",
-  },
   "tsconfig.app.json": {
     "stateCleared": "modified",
   },
